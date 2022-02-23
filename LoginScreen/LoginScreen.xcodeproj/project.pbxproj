@@ -20,6 +20,7 @@
 		894E369327C6B6DB00FA8446 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369227C6B6DB00FA8446 /* Enums.swift */; };
 		894E369627C6C82800FA8446 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369527C6C82800FA8446 /* Coordinator.swift */; };
 		894E369827C6C83300FA8446 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369727C6C83300FA8446 /* MainCoordinator.swift */; };
+		894E369A27C6CDB800FA8446 /* CustomButtonSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369927C6CDB800FA8446 /* CustomButtonSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		894E369227C6B6DB00FA8446 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		894E369527C6C82800FA8446 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		894E369727C6C83300FA8446 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		894E369927C6CDB800FA8446 /* CustomButtonSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				894E369127C6B6D000FA8446 /* Enums */,
 				894E368F27C6B64C00FA8446 /* InputViewSetup.swift */,
+				894E369927C6CDB800FA8446 /* CustomButtonSetup.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				894E369627C6C82800FA8446 /* Coordinator.swift in Sources */,
 				894E368B27C6AF2000FA8446 /* RegisterViewModel.swift in Sources */,
 				894E369027C6B64C00FA8446 /* InputViewSetup.swift in Sources */,
+				894E369A27C6CDB800FA8446 /* CustomButtonSetup.swift in Sources */,
 				894E369827C6C83300FA8446 /* MainCoordinator.swift in Sources */,
 				893FC3CA27C6A2E6004C6FED /* AppDelegate.swift in Sources */,
 				894E368927C6AF1600FA8446 /* RegisterViewController.swift in Sources */,

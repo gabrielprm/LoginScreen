@@ -63,12 +63,10 @@ class LoginViewController: UIViewController, Coordinating {
     }()
     
     lazy var loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(Constants.Texts.loginButton, for: .normal)
+        let button = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.heightAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonHeight).isActive = true
         button.widthAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonWidth).isActive = true
-        button.layer.cornerRadius = 10
-        button.backgroundColor = .brown
+        button.setTitle(Constants.Texts.loginButton, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
         return button
