@@ -67,10 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				894E368E27C6B61E00FA8446 /* Helpers */,
-				894E368D27C6AF3C00FA8446 /* Resources */,
 				894E368C27C6AF3200FA8446 /* Core */,
 				894E367F27C6AE4C00FA8446 /* Screens */,
 				894E367E27C6AE4600FA8446 /* Model */,
+				894E368D27C6AF3C00FA8446 /* Resources */,
 				893FC3D727C6A2E7004C6FED /* Info.plist */,
 			);
 			path = LoginScreen;

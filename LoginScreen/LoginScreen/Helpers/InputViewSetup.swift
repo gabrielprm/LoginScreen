@@ -12,22 +12,20 @@ struct InputViewSetup {
     
     static let shared = InputViewSetup()
     
-    private init() {
-        
-    }
+    private init() { }
     
     func configureUIView(with textField: UITextField) -> UIView {
         let view = UIView()
         view.backgroundColor = .white
-        view.widthAnchor.constraint(equalToConstant: Constants.Sizing.textFieldViewWidth).isActive = true
-        view.heightAnchor.constraint(equalToConstant: Constants.Sizing.textFieldViewHeight).isActive = true
         view.layer.borderWidth = 2
         view.layer.cornerRadius = 10
         view.addSubview(textField)
         
         textField.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+        NSLayoutConstraint.activate([view.widthAnchor.constraint(equalToConstant: Constants.Sizing.textFieldViewWidth),
+                                     view.heightAnchor.constraint(equalToConstant: Constants.Sizing.textFieldViewHeight),
+                                     textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
                                      textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
                                      textField.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         
@@ -36,7 +34,7 @@ struct InputViewSetup {
     
     func configureTextField(with placeholder: String) -> UITextField {
         let textField = UITextField()
-        textField.font = .systemFont(ofSize: Constants.Sizing.fontSize)
+        textField.font = .systemFont(ofSize: Constants.Layout.fontSize)
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.spellCheckingType = .no
