@@ -104,23 +104,18 @@ class FormViewController: UIViewController {
                                      registerAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
     
-//    override func viewDidLoad() {
-//        self.
-//    }
 }
 
 extension FormViewController {
     //MARK: - Helpers
     @objc
     func handleSignIn() {
-        
-        print("func handleSignIn() {")
         self.loginViewDelegate?.formViewInputs(email: self.emailTextField.text, password: self.passwordTextField.text)
     }
     
     @objc
     func handleSignUp() {
-        
+        self.loginViewDelegate?.changeScreenSignUp()
     }
 
 }
