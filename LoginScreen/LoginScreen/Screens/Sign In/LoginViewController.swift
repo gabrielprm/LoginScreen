@@ -85,6 +85,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.isHidden = true
+        
     }
     
     override func viewDidLayoutSubviews() {
