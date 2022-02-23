@@ -12,6 +12,8 @@ class LoginViewController: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
     
+    var viewModel: LoginViewModel
+    
     lazy var formTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 40)
@@ -81,6 +83,19 @@ class LoginViewController: UIViewController, Coordinating {
     }()
     
     //MARK: - Life Cycle
+    convenience init() {
+        self.init(nibName:nil, bundle:nil)
+    }
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        viewModel = LoginViewModel()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -116,7 +131,14 @@ extension LoginViewController {
     //MARK: - Helpers
     @objc
     func handleSignIn() {
-        
+        viewModel.authenticate(withEmail: emailTextField.text, withPassword: passwordTextField.text) { result in
+            switch result {
+                case .success:
+                    self.coordinator?.eventOcurred(with: .signUp)
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
     }
     
     @objc

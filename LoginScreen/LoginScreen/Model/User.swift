@@ -14,5 +14,5 @@ struct User {
 }
 
 struct UserMock {
-    var user: [User] = [User(email: "asd@gmail.com", password: "123", name: "asd")]
+    static var user: [User] = [User(email: "asd@gmail.com", password: "123456789", name: "asd")]
 }

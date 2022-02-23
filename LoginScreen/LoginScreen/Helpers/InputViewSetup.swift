@@ -25,8 +25,8 @@ struct InputViewSetup {
         
         NSLayoutConstraint.activate([view.widthAnchor.constraint(equalToConstant: Constants.Sizing.textFieldViewWidth),
                                      view.heightAnchor.constraint(equalToConstant: Constants.Sizing.textFieldViewHeight),
-                                     textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-                                     textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
+                                     textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                                     textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                                      textField.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         
         return view
