@@ -21,6 +21,9 @@
 		894E369627C6C82800FA8446 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369527C6C82800FA8446 /* Coordinator.swift */; };
 		894E369827C6C83300FA8446 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369727C6C83300FA8446 /* MainCoordinator.swift */; };
 		894E369A27C6CDB800FA8446 /* CustomButtonSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369927C6CDB800FA8446 /* CustomButtonSetup.swift */; };
+		EBB0339827C6DF96008A9258 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339727C6DF96008A9258 /* FormViewController.swift */; };
+		EBB0339A27C6DFA7008A9258 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */; };
+		EBB0339D27C6E478008A9258 /* FormViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339C27C6E478008A9258 /* FormViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		894E369527C6C82800FA8446 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		894E369727C6C83300FA8446 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		894E369927C6CDB800FA8446 /* CustomButtonSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSetup.swift; sourceTree = "<group>"; };
+		EBB0339727C6DF96008A9258 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		EBB0339C27C6E478008A9258 /* FormViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 		893FC3C827C6A2E6004C6FED /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				EBB0339B27C6E455008A9258 /* Interfaces */,
 				894E368E27C6B61E00FA8446 /* Helpers */,
 				894E368C27C6AF3200FA8446 /* Core */,
 				894E367F27C6AE4C00FA8446 /* Screens */,
@@ -103,6 +110,8 @@
 		894E368227C6AE9C00FA8446 /* Sign In */ = {
 			isa = PBXGroup;
 			children = (
+				EBB0339627C6DF6C008A9258 /* Header */,
+				EBB0339527C6DF5A008A9258 /* Form */,
 				894E368027C6AE6600FA8446 /* LoginViewController.swift */,
 				894E368627C6AF0900FA8446 /* LoginViewModel.swift */,
 			);
@@ -161,6 +170,30 @@
 				894E369727C6C83300FA8446 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		EBB0339527C6DF5A008A9258 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				EBB0339727C6DF96008A9258 /* FormViewController.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		EBB0339627C6DF6C008A9258 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		EBB0339B27C6E455008A9258 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				EBB0339C27C6E478008A9258 /* FormViewProtocol.swift */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +266,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB0339D27C6E478008A9258 /* FormViewProtocol.swift in Sources */,
 				894E368527C6AEBA00FA8446 /* User.swift in Sources */,
+				EBB0339A27C6DFA7008A9258 /* HeaderViewController.swift in Sources */,
 				894E368127C6AE6600FA8446 /* LoginViewController.swift in Sources */,
 				894E369627C6C82800FA8446 /* Coordinator.swift in Sources */,
 				894E368B27C6AF2000FA8446 /* RegisterViewModel.swift in Sources */,
@@ -245,6 +280,7 @@
 				894E368727C6AF0900FA8446 /* LoginViewModel.swift in Sources */,
 				894E369327C6B6DB00FA8446 /* Enums.swift in Sources */,
 				893FC3CC27C6A2E6004C6FED /* SceneDelegate.swift in Sources */,
+				EBB0339827C6DF96008A9258 /* FormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
