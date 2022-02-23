@@ -136,7 +136,9 @@ extension LoginViewController {
                 case .success:
                     self.coordinator?.eventOcurred(with: .signUp)
                 case .failure(let err):
-                    print(err.localizedDescription)
+                    let alert = UIAlertController(title: err.localizedDescription, message: err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
             }
         }
     }
