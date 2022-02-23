@@ -18,6 +18,8 @@
 		894E368B27C6AF2000FA8446 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E368A27C6AF2000FA8446 /* RegisterViewModel.swift */; };
 		894E369027C6B64C00FA8446 /* InputViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E368F27C6B64C00FA8446 /* InputViewSetup.swift */; };
 		894E369327C6B6DB00FA8446 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369227C6B6DB00FA8446 /* Enums.swift */; };
+		894E369627C6C82800FA8446 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369527C6C82800FA8446 /* Coordinator.swift */; };
+		894E369827C6C83300FA8446 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E369727C6C83300FA8446 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		894E368A27C6AF2000FA8446 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		894E368F27C6B64C00FA8446 /* InputViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewSetup.swift; sourceTree = "<group>"; };
 		894E369227C6B6DB00FA8446 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		894E369527C6C82800FA8446 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		894E369727C6C83300FA8446 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 				894E368E27C6B61E00FA8446 /* Helpers */,
 				894E368C27C6AF3200FA8446 /* Core */,
 				894E367F27C6AE4C00FA8446 /* Screens */,
+				894E369427C6C80400FA8446 /* Coordinator */,
 				894E367E27C6AE4600FA8446 /* Model */,
 				894E368D27C6AF3C00FA8446 /* Resources */,
 				893FC3D727C6A2E7004C6FED /* Info.plist */,
@@ -146,6 +151,15 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		894E369427C6C80400FA8446 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				894E369527C6C82800FA8446 /* Coordinator.swift */,
+				894E369727C6C83300FA8446 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,8 +232,10 @@
 			files = (
 				894E368527C6AEBA00FA8446 /* User.swift in Sources */,
 				894E368127C6AE6600FA8446 /* LoginViewController.swift in Sources */,
+				894E369627C6C82800FA8446 /* Coordinator.swift in Sources */,
 				894E368B27C6AF2000FA8446 /* RegisterViewModel.swift in Sources */,
 				894E369027C6B64C00FA8446 /* InputViewSetup.swift in Sources */,
+				894E369827C6C83300FA8446 /* MainCoordinator.swift in Sources */,
 				893FC3CA27C6A2E6004C6FED /* AppDelegate.swift in Sources */,
 				894E368927C6AF1600FA8446 /* RegisterViewController.swift in Sources */,
 				894E368727C6AF0900FA8446 /* LoginViewModel.swift in Sources */,

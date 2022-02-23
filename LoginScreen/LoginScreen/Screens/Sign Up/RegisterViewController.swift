@@ -7,7 +7,9 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, Coordinating {
+    
+    var coordinator: Coordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

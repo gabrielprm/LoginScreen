@@ -7,9 +7,10 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-    
+class LoginViewController: UIViewController, Coordinating {
     //MARK: - Properties
+    
+    var coordinator: Coordinator?
     
     lazy var formTitle: UILabel = {
         let label = UILabel()
@@ -122,8 +123,7 @@ extension LoginViewController {
     
     @objc
     func handleSignUp() {
-        let vc = RegisterViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        coordinator?.eventOcurred(with: .signUp)
     }
 
 }
