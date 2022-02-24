@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66A3037227C81FF10070C212 /* MountainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A3037127C81FF10070C212 /* MountainView.swift */; };
 		893FC3CA27C6A2E6004C6FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FC3C927C6A2E6004C6FED /* AppDelegate.swift */; };
 		893FC3CC27C6A2E6004C6FED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FC3CB27C6A2E6004C6FED /* SceneDelegate.swift */; };
 		893FC3D327C6A2E7004C6FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 893FC3D227C6A2E7004C6FED /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66A3037127C81FF10070C212 /* MountainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainView.swift; sourceTree = "<group>"; };
 		893FC3C627C6A2E6004C6FED /* LoginScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		893FC3C927C6A2E6004C6FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		893FC3CB27C6A2E6004C6FED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */,
+				66A3037127C81FF10070C212 /* MountainView.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				894E369327C6B6DB00FA8446 /* Enums.swift in Sources */,
 				893FC3CC27C6A2E6004C6FED /* SceneDelegate.swift in Sources */,
 				EBB0339827C6DF96008A9258 /* FormViewController.swift in Sources */,
+				66A3037227C81FF10070C212 /* MountainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

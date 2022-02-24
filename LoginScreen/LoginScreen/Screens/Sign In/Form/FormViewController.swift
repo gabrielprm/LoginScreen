@@ -8,7 +8,7 @@
 import UIKit
 
 class FormViewController: UIViewController, PropertyObserver {
-    func updateTime(ind: Int) {
+    func updateTime(partOfTheDay: PartOfTheDay) {
         print("Cheguei")
     }
     

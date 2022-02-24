@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 protocol PropertyObserver: AnyObject{
-    func updateTime(ind: Int)
+    func updateTime(partOfTheDay: PartOfTheDay)
 }
 
 class TimeObserver{
     var assinantes:[PropertyObserver] = []
     var ind = 1
     init(){
-        _ = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
+        _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
             self.notifyObservers(ind: self.ind)
             self.ind += 1
             
@@ -34,7 +34,15 @@ class TimeObserver{
     func notifyObservers(ind: Int){
         
         for assinante in assinantes {
-            assinante.updateTime(ind: ind)
+            switch ind {
+            case 1:
+                assinante.updateTime(partOfTheDay: .morning)
+            
+            case 2: assinante.updateTime(partOfTheDay: .afternoon)
+                
+            default:
+                assinante.updateTime(partOfTheDay: .night)
+            }
         }
     }
 }

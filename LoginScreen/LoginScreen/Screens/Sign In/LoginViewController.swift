@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, Coordinating {
         
         timeObserver.addAssinante(assinante: headerViewController)
         timeObserver.addAssinante(assinante: formView)
-        self.view.addSubview(formView.view)
+        //self.view.addSubview(formView.view)
         self.view.addSubview(headerViewController.imageView)
     }
     

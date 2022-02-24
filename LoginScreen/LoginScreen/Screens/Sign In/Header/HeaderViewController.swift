@@ -8,8 +8,9 @@
 import UIKit
 
 class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
-    func updateTime(ind: Int) {
-        self.imageView.image = UIImage(named: "img\(ind)")
+    func updateTime(partOfTheDay: PartOfTheDay) {
+        imageView.partOftTheDay = partOfTheDay
+        imageView.update()
     }
     
     var coordinator: Coordinator?
@@ -17,42 +18,54 @@ class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
     let currentPartOfTheDay: PartOfTheDay //Dependence Injection⁉️
     
     //Views Declarations
-    lazy var imageView: UIImageView = {
-        let background = UIImage(named: "img1")
-        
-        var imageView: UIImageView!
-        imageView = UIImageView(frame: UIScreen.main.bounds)
-        imageView.contentMode =  UIView.ContentMode.scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.image = background
-        
-        return imageView
-    }()
-    
+    //    lazy var imageView: UIImageView = {
+    //        let background = UIImage(named: "img1")
+    //
+    //        var imageView: UIImageView!
+    //        imageView = UIImageView(frame: UIScreen.main.bounds)
+    //        imageView.contentMode =  UIView.ContentMode.scaleAspectFit
+    //        imageView.clipsToBounds = true
+    //        imageView.image = background
+    //
+    //        return imageView
+    //    }()
+    var imageView: MountainView
     
     init(currentPartOfTheDay: PartOfTheDay) {
         self.currentPartOfTheDay = currentPartOfTheDay
         
+        let width: CGFloat = UIScreen.main.bounds.width
+        let height: CGFloat = UIScreen.main.bounds.height * 0.6
+        
+        
+        imageView = MountainView(frame: CGRect(x: 0,
+                                               y: 0,
+                                               width: width,
+                                               height: height),
+                                 partOftTheDay: currentPartOfTheDay)
+        //imageView.layer.zPosition = -1
+        imageView.layer.cornerRadius = 5
         super.init(nibName: nil, bundle: nil)
         
+        self.view.addSubview(imageView)
         view.addSubview(imageView)
         
-        setImageBasedOnCurrentPartOfTheDay()
+        //setImageBasedOnCurrentPartOfTheDay()
         setupConstraints()
     }
     
-    private func setImageBasedOnCurrentPartOfTheDay() {
-        switch currentPartOfTheDay {
-            case .morning:
-                imageView.image = UIImage(named: "img1")
-                
-            case .afternoon:
-                imageView.image = UIImage(named: "img2")
-                
-            case .evening, .night:
-                imageView.image = UIImage(named: "img3")                
-        }
-    }
+//    private func setImageBasedOnCurrentPartOfTheDay() {
+//        switch currentPartOfTheDay {
+//        case .morning:
+//            imageView.image = UIImage(named: "img1")
+//
+//        case .afternoon:
+//            imageView.image = UIImage(named: "img2")
+//
+//        case .evening, .night:
+//            imageView.image = UIImage(named: "img3")
+//        }
+//    }
     
     private func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
