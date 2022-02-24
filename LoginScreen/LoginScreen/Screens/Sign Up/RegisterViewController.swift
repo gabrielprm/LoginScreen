@@ -10,12 +10,16 @@ import UIKit
 class RegisterViewController: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
+    lazy var headerViewController = HeaderViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
         // Do any additional setup after loading the view.
+        
+        self.view.addSubview(headerViewController.view)
     }
+    
     
 
     /*

@@ -21,9 +21,14 @@ enum Constants {
     enum Layout {
         static let stackSpacing: CGFloat = 20
         static let fontSize: CGFloat = 16
+        static let horizontalMargins: CGFloat = 20
+        static let verticalalMargins: CGFloat = 20
     }
 
     enum Sizing {
+        static let screenWidth: CGFloat = UIScreen.main.bounds.width
+        static let screenHeight: CGFloat = UIScreen.main.bounds.height
+        
         static let stackLabelWidht: CGFloat = UIScreen.main.bounds.width * 0.7
         static let stackTextFieldWidht: CGFloat = UIScreen.main.bounds.width * 0.9
         static let textFieldViewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
