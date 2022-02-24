@@ -25,6 +25,7 @@
 		EBB0339A27C6DFA7008A9258 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */; };
 		EBB0339D27C6E478008A9258 /* FormViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339C27C6E478008A9258 /* FormViewProtocol.swift */; };
 		EBB0339F27C722C5008A9258 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339E27C722C5008A9258 /* Tools.swift */; };
+		FBAD978027C7F82700BE988F /* TimeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD977F27C7F82700BE988F /* TimeObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		EBB0339C27C6E478008A9258 /* FormViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewProtocol.swift; sourceTree = "<group>"; };
 		EBB0339E27C722C5008A9258 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		FBAD977F27C7F82700BE988F /* TimeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		893FC3C827C6A2E6004C6FED /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				FBAD977E27C7F7F300BE988F /* ViewModel */,
 				EBB0339B27C6E455008A9258 /* Interfaces */,
 				894E368E27C6B61E00FA8446 /* Helpers */,
 				894E368C27C6AF3200FA8446 /* Core */,
@@ -199,6 +202,14 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
+		FBAD977E27C7F7F300BE988F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FBAD977F27C7F82700BE988F /* TimeObserver.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,6 +286,7 @@
 				894E368127C6AE6600FA8446 /* LoginViewController.swift in Sources */,
 				894E369627C6C82800FA8446 /* Coordinator.swift in Sources */,
 				894E368B27C6AF2000FA8446 /* RegisterViewModel.swift in Sources */,
+				FBAD978027C7F82700BE988F /* TimeObserver.swift in Sources */,
 				894E369027C6B64C00FA8446 /* InputViewSetup.swift in Sources */,
 				EBB0339F27C722C5008A9258 /* Tools.swift in Sources */,
 				894E369A27C6CDB800FA8446 /* CustomButtonSetup.swift in Sources */,
