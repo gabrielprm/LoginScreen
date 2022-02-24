@@ -7,7 +7,11 @@
 
 import UIKit
 
-class FormViewController: UIViewController {
+class FormViewController: UIViewController, PropertyObserver {
+    func updateTime(ind: Int) {
+        print("Cheguei")
+    }
+    
     //MARK: - Properties
     
     weak var loginViewDelegate: FormViewDelegate?

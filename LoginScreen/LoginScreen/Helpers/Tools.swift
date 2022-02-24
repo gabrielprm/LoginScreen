@@ -36,3 +36,11 @@ func getCurrentPartOfTheDay() -> PartOfTheDay {
         
     }
 }
+
+///Uses the current hour to return the part of the day
+func getCurrentHour() -> String {
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "HH"
+    return dateFormatter.string(from: Date())
+}

@@ -7,7 +7,11 @@
 
 import UIKit
 
-class HeaderViewController: UIViewController, Coordinating {
+class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
+    func updateTime(ind: Int) {
+        self.imageView.image = UIImage(named: "img\(ind)")
+    }
+    
     var coordinator: Coordinator?
     
     let currentPartOfTheDay: PartOfTheDay //Dependence Injection⁉️

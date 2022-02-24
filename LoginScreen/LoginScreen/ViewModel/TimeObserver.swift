@@ -9,36 +9,33 @@ import Foundation
 import UIKit
 
 protocol PropertyObserver: AnyObject{
-    func updateTime(timeInString: String, newObject: AnyObject?)
+    func updateTime(ind: Int)
 }
 
 class TimeObserver{
     var assinantes:[PropertyObserver] = []
-    
+    var ind = 1
     init(){
-        
+        _ = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
+            self.notifyObservers(ind: self.ind)
+            self.ind += 1
+            
+            if self.ind == 4 {
+                self.ind = 1
+            }
+            
+        }
     }
     
     func addAssinante(assinante: PropertyObserver){
         assinantes.append(assinante)
     }
     
-    func notifyObservers(){
+    func notifyObservers(ind: Int){
         
-    }
-    
-}
-
-class AssinanteA: PropertyObserver{
-    func updateTime(timeInString: String, newObject: AnyObject?) {
-        print("Assinante B recebeu Att")
-
-    }
-}
-
-class AssinanteB: PropertyObserver{
-    func updateTime(timeInString: String, newObject: AnyObject?) {
-        print("Assinante A recebeu Att")
+        for assinante in assinantes {
+            assinante.updateTime(ind: ind)
+        }
     }
 }
 
