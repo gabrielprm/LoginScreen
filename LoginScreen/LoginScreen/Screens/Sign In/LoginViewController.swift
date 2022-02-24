@@ -34,7 +34,11 @@ class LoginViewController: UIViewController, Coordinating {
         
         timeObserver.addAssinante(assinante: headerViewController)
         timeObserver.addAssinante(assinante: formView)
-        //self.view.addSubview(formView.view)
+        
+        formView.view.layer.zPosition = 5
+        headerViewController.imageView.layer.zPosition = 0
+        
+        self.view.addSubview(formView.view)
         self.view.addSubview(headerViewController.imageView)
     }
     

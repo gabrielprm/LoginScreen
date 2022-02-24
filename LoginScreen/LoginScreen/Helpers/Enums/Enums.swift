@@ -41,8 +41,8 @@ enum Constants {
 
 ///The parts of the Day based o the hour
 enum PartOfTheDay: Int {
-    case morning = 0
-    case afternoon
-    case evening
-    case night
+    case morning = 1
+    case afternoon = 2
+//    case evening
+    case night = 3
 }

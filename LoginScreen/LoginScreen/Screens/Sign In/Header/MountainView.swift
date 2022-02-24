@@ -14,14 +14,14 @@ class MountainView: UIView {
     var partOftTheDay: PartOfTheDay = .morning
     var colors: [String: CGColor] = ["": UIColor.white.cgColor]
     
-    var elevation: CGFloat = 100.0
+    var elevation: CGFloat = 0
     
-    var proceduralMountainPath: CAShapeLayer?
-    var background: CAShapeLayer?
-    var mountainA: CAShapeLayer?
-    var mountainB: CAShapeLayer?
-    var mountainC: CAShapeLayer?
-    var mountainD: CAShapeLayer?
+//    var proceduralMountainPath: CAShapeLayer?
+    var background = CAShapeLayer()
+    var mountainA = CAShapeLayer()
+    var mountainB = CAShapeLayer()
+    var mountainC = CAShapeLayer()
+    var mountainD = CAShapeLayer()
     
     
     init(frame: CGRect, partOftTheDay: PartOfTheDay) {
@@ -30,25 +30,59 @@ class MountainView: UIView {
         
            self.backgroundColor = UIColor.clear
 //        self.backgroundColor = UIColor.darkGray
+//        update()
+        
+        
+//            setColors()
+//        background = createBackground()
+//        mountainA = createMountainA(procedural: true)
+//        mountainB = createMountainB(procedural: true)
+//        mountainC = createMountainC(procedural: true)
+//        mountainD = createMountainD(procedural: true)
         update()
         
-                
+        self.layer.addSublayer(background)
+        self.layer.addSublayer(mountainA)
+        self.layer.addSublayer(mountainB)
+        self.layer.addSublayer(mountainC)
+        self.layer.addSublayer(mountainD)
+        
+        
 //        createCircle()
     }
     
     func update(){
-        setColors()
-
-        createBackground()
         
-        mountainA?.removeFromSuperlayer()
-        mountainB?.removeFromSuperlayer()
-        mountainC?.removeFromSuperlayer()
-        mountainD?.removeFromSuperlayer()
-        createMountainA(procedural: true)
-        createMountainB(procedural: true)
-        createMountainC(procedural: true)
-        createMountainD(procedural: true)
+//        setColors()
+//
+//        background.fillColor = colors["background"]
+//        mountainA.fillColor = colors["layerA"]
+//        mountainB.fillColor = colors["layerB"]
+//        mountainC.fillColor = colors["layerC"]
+//        mountainD.fillColor = colors["layerD"]
+//
+        
+        
+            setColors()
+        background.path = createBackground().path
+        mountainA.path = createMountainA(procedural: true).path
+        mountainB.path = createMountainB(procedural: true).path
+        mountainC.path = createMountainC(procedural: true).path
+        mountainD.path = createMountainD(procedural: true).path
+        
+        background.fillColor = colors["background"]
+        mountainA.fillColor = colors["layerA"]
+        mountainB.fillColor = colors["layerB"]
+        mountainC.fillColor = colors["layerC"]
+        mountainD.fillColor = colors["layerD"]
+//        createBackground()
+//        createMountainA(procedural: true)
+//        createMountainB(procedural: true)
+//        createMountainC(procedural: true)
+//        createMountainD(procedural: true)
+        
+        self.layer.display()
+
     }
     
     override func draw(_ rect: CGRect) {
@@ -57,7 +91,7 @@ class MountainView: UIView {
     
     
     //MARK: - CREATE Background
-    private func createBackground() {
+    private func createBackground() -> CAShapeLayer {
         // Initialize the path.
         path = UIBezierPath()
      
@@ -92,14 +126,13 @@ class MountainView: UIView {
         
         
         
-        background = CAShapeLayer()
-        background!.path = self.path.cgPath
-     
-        self.layer.addSublayer(background!)
-        
-        background!.fillColor = colors["background"]
+        let background = CAShapeLayer()
+        background.path = self.path.cgPath
+             
+        background.fillColor = colors["background"]
          
-        self.layer.addSublayer(background!)
+        return background
+         
     }
     
     
@@ -214,17 +247,17 @@ class MountainView: UIView {
         // Close the path. This will create the last line automatically.
         path.close()
         
-        proceduralMountainPath = CAShapeLayer()
-        proceduralMountainPath!.path = self.path.cgPath
-     
-        self.layer.addSublayer(proceduralMountainPath!)
-        
-        proceduralMountainPath!.fillColor = colors["layerA"]
-         
-        self.layer.addSublayer(proceduralMountainPath!)
+//        proceduralMountainPath = CAShapeLayer()
+//        proceduralMountainPath!.path = self.path.cgPath
+//
+//        proceduralMountainPath!.fillColor = colors["layerA"]
+//
+//        self.layer.addSublayer(proceduralMountainPath!)
     }
     
-    private func createMountainA(procedural: Bool = false) {
+    private func createMountainA(procedural: Bool = false) -> CAShapeLayer {
+//        self.mountainA?.removeFromSuperlayer()
+        
         if procedural {
         proceduralMountainPath()
         } else {
@@ -310,18 +343,15 @@ class MountainView: UIView {
             path.close()
         }
         
-        mountainA = CAShapeLayer()
-        mountainA!.path = self.path.cgPath
-     
-        self.layer.addSublayer(mountainA!)
-        
-        mountainA!.fillColor = colors["layerA"]
+        let mountain = CAShapeLayer()
+        mountain.path = self.path.cgPath
+             
+        mountain.fillColor = colors["layerA"]
          
-        
-        self.layer.addSublayer(mountainA!)
+        return mountain
     }
     
-    private func createMountainB(procedural: Bool = false) {
+    private func createMountainB(procedural: Bool = false) -> CAShapeLayer {
         if procedural {
             proceduralMountainPath(maxHeight: 300, minHeight: 150.0)
             
@@ -409,17 +439,16 @@ class MountainView: UIView {
         }
         
         
-        mountainB = CAShapeLayer()
-        mountainB!.path = self.path.cgPath
-     
-        self.layer.addSublayer(mountainB!)
         
-        mountainB!.fillColor = colors["layerB"]
-         
-        self.layer.addSublayer(mountainB!)
+        let mountain = CAShapeLayer()
+        mountain.path = self.path.cgPath
+        
+        mountain.fillColor = colors["layerB"]
+        
+        return mountain
     }
     
-    private func createMountainC(procedural: Bool = false) {
+    private func createMountainC(procedural: Bool = false) -> CAShapeLayer {
         if procedural {
             proceduralMountainPath(maxHeight: 350, minHeight: 200)
             
@@ -506,17 +535,15 @@ class MountainView: UIView {
             path.close()
         }
         
-        mountainC = CAShapeLayer()
-        mountainC!.path = self.path.cgPath
-     
-        self.layer.addSublayer(mountainC!)
+        let mountain = CAShapeLayer()
+        mountain.path = self.path.cgPath
         
-        mountainC!.fillColor = colors["layerC"]
-         
-        self.layer.addSublayer(mountainC!)
+        mountain.fillColor = colors["layerC"]
+        
+        return mountain
     }
     
-    private func createMountainD(procedural: Bool = false) {
+    private func createMountainD(procedural: Bool = false) -> CAShapeLayer {
         if procedural {
             proceduralMountainPath(maxHeight: 400, minHeight: 250)
         } else {
@@ -601,42 +628,29 @@ class MountainView: UIView {
             path.close()
         }
         
-        mountainD = CAShapeLayer()
-        mountainD!.path = self.path.cgPath
         
-        self.layer.addSublayer(mountainD!)
         
-        mountainD!.fillColor = colors["layerD"]
+        let mountain = CAShapeLayer()
+        mountain.path = self.path.cgPath
         
-        self.layer.addSublayer(mountainD!)
+        mountain.fillColor = colors["layerD"]
+        
+        return mountain
     }
     
     
     
     //MARK: - COLORS
     func setColors() {
-        var assetSuffix = 0
-        
-        switch self.partOftTheDay {
-        case .morning:
-            assetSuffix = 1
-
-        case .afternoon:
-            assetSuffix = 2
-
-        case .evening, .night:
-            assetSuffix = 3
-
-        }
         
         self.colors = [
-            "background": UIColor(named: "bg_\(assetSuffix)")!.cgColor,
-            "astro":  UIColor(named: "circle_\(assetSuffix)")!.cgColor,
+            "background": UIColor(named: "bg_\(self.partOftTheDay.rawValue)")!.cgColor,
+            "astro":  UIColor(named: "circle_\(self.partOftTheDay.rawValue)")!.cgColor,
             "clouds": UIColor(named: "clouds")!.cgColor,
-            "layerA": UIColor(named: "mountain_A_\(assetSuffix)")!.cgColor,
-            "layerB": UIColor(named: "mountain_B_\(assetSuffix)")!.cgColor,
-            "layerC": UIColor(named: "mountain_C_\(assetSuffix)")!.cgColor,
-            "layerD": UIColor(named: "mountain_D_\(assetSuffix)")!.cgColor
+            "layerA": UIColor(named: "mountain_A_\(self.partOftTheDay.rawValue)")!.cgColor,
+            "layerB": UIColor(named: "mountain_B_\(self.partOftTheDay.rawValue)")!.cgColor,
+            "layerC": UIColor(named: "mountain_C_\(self.partOftTheDay.rawValue)")!.cgColor,
+            "layerD": UIColor(named: "mountain_D_\(self.partOftTheDay.rawValue)")!.cgColor
         ]
     }
     

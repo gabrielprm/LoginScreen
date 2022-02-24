@@ -33,15 +33,9 @@ class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
     
     init(currentPartOfTheDay: PartOfTheDay) {
         self.currentPartOfTheDay = currentPartOfTheDay
+               
         
-        let width: CGFloat = UIScreen.main.bounds.width
-        let height: CGFloat = UIScreen.main.bounds.height * 0.6
-        
-        
-        imageView = MountainView(frame: CGRect(x: 0,
-                                               y: 0,
-                                               width: width,
-                                               height: height),
+        imageView = MountainView(frame: UIScreen.main.bounds,
                                  partOftTheDay: currentPartOfTheDay)
         //imageView.layer.zPosition = -1
         imageView.layer.cornerRadius = 5
