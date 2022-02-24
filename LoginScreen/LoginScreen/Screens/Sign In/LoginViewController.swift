@@ -15,6 +15,8 @@ class LoginViewController: UIViewController, Coordinating {
     var viewModel: LoginViewModel
     
     var formView: FormViewController
+    var headerViewController: HeaderViewController
+    
     
     //MARK: - Life Cycle
     convenience init() {
@@ -24,12 +26,15 @@ class LoginViewController: UIViewController, Coordinating {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         viewModel = LoginViewModel()
         formView = FormViewController()
+        headerViewController = HeaderViewController(currentPartOfTheDay: getCurrentPartOfTheDay())
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         self.view.addSubview(formView.view)
+        self.view.addSubview(headerViewController.imageView)
     }
-
+    
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -42,11 +47,6 @@ class LoginViewController: UIViewController, Coordinating {
         
         ///Sets self as "delegator", receiver of data inputed on the FormViewController
         self.formView.loginViewDelegate = self
-    }
-    
-    override func viewDidLayoutSubviews() {
-       
-        
     }
 }
 

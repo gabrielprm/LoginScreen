@@ -14,6 +14,8 @@ class MainCoordinator: Coordinator {
     
     func eventOcurred(with type: Event) {
         switch type {
+            case .signIn:
+                start()
             case .signUp:
                 moveToSignUpScreen()
         }
@@ -27,11 +29,9 @@ class MainCoordinator: Coordinator {
     }
     
     func moveToSignUpScreen() {
+        
         var vc: UIViewController & Coordinating = RegisterViewController()
         vc.coordinator = self
         navigationController?.pushViewController(vc, animated: true)
-        
     }
-    
-    
 }

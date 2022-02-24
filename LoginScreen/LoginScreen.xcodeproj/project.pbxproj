@@ -24,6 +24,7 @@
 		EBB0339827C6DF96008A9258 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339727C6DF96008A9258 /* FormViewController.swift */; };
 		EBB0339A27C6DFA7008A9258 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */; };
 		EBB0339D27C6E478008A9258 /* FormViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339C27C6E478008A9258 /* FormViewProtocol.swift */; };
+		EBB0339F27C722C5008A9258 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0339E27C722C5008A9258 /* Tools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		EBB0339727C6DF96008A9258 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		EBB0339927C6DFA7008A9258 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		EBB0339C27C6E478008A9258 /* FormViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewProtocol.swift; sourceTree = "<group>"; };
+		EBB0339E27C722C5008A9258 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				894E369127C6B6D000FA8446 /* Enums */,
 				894E368F27C6B64C00FA8446 /* InputViewSetup.swift */,
 				894E369927C6CDB800FA8446 /* CustomButtonSetup.swift */,
+				EBB0339E27C722C5008A9258 /* Tools.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				894E369627C6C82800FA8446 /* Coordinator.swift in Sources */,
 				894E368B27C6AF2000FA8446 /* RegisterViewModel.swift in Sources */,
 				894E369027C6B64C00FA8446 /* InputViewSetup.swift in Sources */,
+				EBB0339F27C722C5008A9258 /* Tools.swift in Sources */,
 				894E369A27C6CDB800FA8446 /* CustomButtonSetup.swift in Sources */,
 				894E369827C6C83300FA8446 /* MainCoordinator.swift in Sources */,
 				893FC3CA27C6A2E6004C6FED /* AppDelegate.swift in Sources */,

@@ -11,7 +11,7 @@ class FormViewController: UIViewController {
     //MARK: - Properties
     
     weak var loginViewDelegate: FormViewDelegate?
-    
+        
     lazy var formTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 40)
@@ -83,7 +83,7 @@ class FormViewController: UIViewController {
     //MARK: - Life Cycle
     
     override func viewDidLayoutSubviews() {
-
+        view.addSubview(stackLabel)
         view.addSubview(stackLabel)
         view.addSubview(stackTextFields)
         view.addSubview(loginButton)
@@ -94,7 +94,7 @@ class FormViewController: UIViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         registerAccountButton.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([stackLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+        NSLayoutConstraint.activate([stackLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: sizeProportional(370)),
                                      stackLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
                                      stackTextFields.topAnchor.constraint(equalTo: stackLabel.bottomAnchor, constant: 20),
                                      stackTextFields.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
