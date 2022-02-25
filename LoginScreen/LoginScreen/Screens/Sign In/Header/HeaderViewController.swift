@@ -17,8 +17,7 @@ class HeaderViewController: UIViewController, Coordinating, WatchTimeSubscriber 
     
     init(currentPartOfTheDay: PartOfTheDay) {
         self.currentPartOfTheDay = currentPartOfTheDay
-        self.imageView = MountainView(frame: UIScreen.main.bounds,
-                                 partOftTheDay: currentPartOfTheDay)
+        self.imageView = MountainView(frame: UIScreen.main.bounds, partOftTheDay: currentPartOfTheDay)
         
         super.init(nibName: nil, bundle: nil)
         

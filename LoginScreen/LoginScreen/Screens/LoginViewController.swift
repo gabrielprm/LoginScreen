@@ -26,7 +26,7 @@ class LoginViewController: UIViewController, Coordinating {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         viewModel = LoginViewModel()
-        formView = FormViewController()
+        formView = FormViewController(currentPartOfTheDay: getCurrentPartOfTheDay())
         headerViewController = HeaderViewController(currentPartOfTheDay: getCurrentPartOfTheDay())
         timeObserver = WatchTimePublisher()
         

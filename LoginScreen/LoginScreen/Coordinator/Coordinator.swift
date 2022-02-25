@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 enum Event {
+    case start
     case signUp
     case signIn
 }
@@ -18,7 +19,6 @@ protocol Coordinator {
     
     func eventOcurred(with type: Event)
     func start()
-    func moveToSignUpScreen()
 }
 
 protocol Coordinating {

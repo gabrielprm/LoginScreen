@@ -12,6 +12,8 @@ class FormViewController: UIViewController, WatchTimeSubscriber {
     
     weak var loginViewDelegate: FormViewDelegate?
         
+    let currentPartOfTheDay: PartOfTheDay
+    
     lazy var formTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 40)
@@ -63,7 +65,7 @@ class FormViewController: UIViewController, WatchTimeSubscriber {
     }()
     
     lazy var loginButton: UIButton = {
-        let button = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0), color: UIColor(named: "mountain_A_3")!)
+        let button = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0), color: UIColor(named: "mountain_A_\(self.currentPartOfTheDay.rawValue)")!)
         button.heightAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonHeight).isActive = true
         button.widthAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonWidth).isActive = true
         button.setTitle(Constants.Texts.loginButton, for: .normal)
@@ -81,6 +83,11 @@ class FormViewController: UIViewController, WatchTimeSubscriber {
     }()
     
     //MARK: - Life Cycle
+    init(currentPartOfTheDay: PartOfTheDay) {
+        self.currentPartOfTheDay = currentPartOfTheDay
+        
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func viewDidLayoutSubviews() {
         view.addSubview(stackLabel)
@@ -116,6 +123,10 @@ class FormViewController: UIViewController, WatchTimeSubscriber {
         loginButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
         
         self.view.addSubview(loginButton)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

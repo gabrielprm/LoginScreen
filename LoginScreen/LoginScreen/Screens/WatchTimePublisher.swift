@@ -12,7 +12,7 @@ class WatchTimePublisher{
     var ind = 1
     
     init(){
-        _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
+        _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { timer in
             self.notifySubscribers()
             self.ind += 1
             
