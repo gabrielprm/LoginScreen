@@ -18,17 +18,11 @@ class CustomButtonSetup: UIButton {
 
        self.backgroundColor = UIColor.clear
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 
     override func draw(_ rect: CGRect) {
 
         createRectangle()
         backgroundColor = .clear
-//        UIColor.brown.set()
         self.color.set()
         path.fill()
 
@@ -38,7 +32,10 @@ class CustomButtonSetup: UIButton {
         path = UIBezierPath(roundedRect: self.bounds,
                                    byRoundingCorners: [.topLeft, .bottomRight],
                                    cornerRadii: CGSize(width: 30.0, height: 0.0))
-//        UIColor.rgb(red: 188, green: 196, blue: 247).set()
         path.close()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

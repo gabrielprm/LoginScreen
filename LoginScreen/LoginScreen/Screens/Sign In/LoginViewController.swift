@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, Coordinating {
     
     var formView: FormViewController
     var headerViewController: HeaderViewController
-    var timeObserver: TimeObserver
+    var timeObserver: WatchTimePublisher
     
     
     //MARK: - Life Cycle
@@ -28,12 +28,12 @@ class LoginViewController: UIViewController, Coordinating {
         viewModel = LoginViewModel()
         formView = FormViewController()
         headerViewController = HeaderViewController(currentPartOfTheDay: getCurrentPartOfTheDay())
-        timeObserver = TimeObserver()
+        timeObserver = WatchTimePublisher()
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        timeObserver.addAssinante(assinante: headerViewController)
-        timeObserver.addAssinante(assinante: formView)
+        timeObserver.subscribe(sub: headerViewController)
+        timeObserver.subscribe(sub: formView)
         
         formView.view.layer.zPosition = 5
         headerViewController.imageView.layer.zPosition = 0

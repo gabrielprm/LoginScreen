@@ -7,11 +7,7 @@
 
 import UIKit
 
-class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
-    func updateTime(partOfTheDay: PartOfTheDay) {
-        imageView.setPartOftTheDay(partOfTheDay)
-        imageView.updateShapeLayers()
-    }
+class HeaderViewController: UIViewController, Coordinating, WatchTimeSubscriber {
     
     var coordinator: Coordinator?
     
@@ -38,6 +34,12 @@ class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
         imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: Constants.Sizing.screenHeight * 0.4425).isActive = true
+    }
+    
+    //MARK: - PROTOCOLS
+    func makeChanges(partOfTheDay: PartOfTheDay) {
+        imageView.setPartOftTheDay(partOfTheDay)
+        imageView.updateShapeLayers()
     }
     
     required init?(coder: NSCoder) {

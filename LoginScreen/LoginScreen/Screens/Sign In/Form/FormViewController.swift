@@ -7,20 +7,7 @@
 
 import UIKit
 
-class FormViewController: UIViewController, PropertyObserver {
-    func updateTime(partOfTheDay: PartOfTheDay) {
-        self.loginButton.removeFromSuperview()
-        
-        loginButton = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0), color: UIColor(named: "mountain_A_\(partOfTheDay.rawValue)")!)
-        loginButton.heightAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonHeight).isActive = true
-        loginButton.widthAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonWidth).isActive = true
-        loginButton.setTitle(Constants.Texts.loginButton, for: .normal)
-        loginButton.tintColor = .white
-        loginButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
-        
-        self.view.addSubview(loginButton)
-    }
-    
+class FormViewController: UIViewController, WatchTimeSubscriber {
     //MARK: - Properties
     
     weak var loginViewDelegate: FormViewDelegate?
@@ -117,6 +104,19 @@ class FormViewController: UIViewController, PropertyObserver {
                                      registerAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
     
+    //MARK: - OBSERVER
+    func makeChanges(partOfTheDay: PartOfTheDay) {
+        self.loginButton.removeFromSuperview()
+        
+        loginButton = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0), color: UIColor(named: "mountain_A_\(partOfTheDay.rawValue)")!)
+        loginButton.heightAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonHeight).isActive = true
+        loginButton.widthAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonWidth).isActive = true
+        loginButton.setTitle(Constants.Texts.loginButton, for: .normal)
+        loginButton.tintColor = .white
+        loginButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
+        
+        self.view.addSubview(loginButton)
+    }
 }
 
 extension FormViewController {
