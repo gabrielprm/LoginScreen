@@ -9,55 +9,27 @@ import UIKit
 
 class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
     func updateTime(partOfTheDay: PartOfTheDay) {
-        imageView.partOftTheDay = partOfTheDay
-        imageView.updateshapeLayers()
+        imageView.setPartOftTheDay(partOfTheDay)
+        imageView.updateShapeLayers()
     }
     
     var coordinator: Coordinator?
     
-    let currentPartOfTheDay: PartOfTheDay //Dependence Injection⁉️
+    let currentPartOfTheDay: PartOfTheDay
     
-    //Views Declarations
-    //    lazy var imageView: UIImageView = {
-    //        let background = UIImage(named: "img1")
-    //
-    //        var imageView: UIImageView!
-    //        imageView = UIImageView(frame: UIScreen.main.bounds)
-    //        imageView.contentMode =  UIView.ContentMode.scaleAspectFit
-    //        imageView.clipsToBounds = true
-    //        imageView.image = background
-    //
-    //        return imageView
-    //    }()
     var imageView: MountainView
     
     init(currentPartOfTheDay: PartOfTheDay) {
         self.currentPartOfTheDay = currentPartOfTheDay
-               
-        
-        imageView = MountainView(frame: UIScreen.main.bounds,
+        self.imageView = MountainView(frame: UIScreen.main.bounds,
                                  partOftTheDay: currentPartOfTheDay)
         
         super.init(nibName: nil, bundle: nil)
         
-        view.addSubview(imageView)
+        self.view.addSubview(self.imageView)
         
-        //setImageBasedOnCurrentPartOfTheDay()
         setupConstraints()
     }
-    
-//    private func setImageBasedOnCurrentPartOfTheDay() {
-//        switch currentPartOfTheDay {
-//        case .morning:
-//            imageView.image = UIImage(named: "img1")
-//
-//        case .afternoon:
-//            imageView.image = UIImage(named: "img2")
-//
-//        case .evening, .night:
-//            imageView.image = UIImage(named: "img3")
-//        }
-//    }
     
     private func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
