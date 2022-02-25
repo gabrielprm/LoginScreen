@@ -10,7 +10,7 @@ import UIKit
 class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
     func updateTime(partOfTheDay: PartOfTheDay) {
         imageView.partOftTheDay = partOfTheDay
-        imageView.update()
+        imageView.updateshapeLayers()
     }
     
     var coordinator: Coordinator?
@@ -37,11 +37,9 @@ class HeaderViewController: UIViewController, Coordinating, PropertyObserver {
         
         imageView = MountainView(frame: UIScreen.main.bounds,
                                  partOftTheDay: currentPartOfTheDay)
-        //imageView.layer.zPosition = -1
-        imageView.layer.cornerRadius = 5
+        
         super.init(nibName: nil, bundle: nil)
         
-        self.view.addSubview(imageView)
         view.addSubview(imageView)
         
         //setImageBasedOnCurrentPartOfTheDay()

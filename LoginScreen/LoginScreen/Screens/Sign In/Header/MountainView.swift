@@ -8,15 +8,15 @@
 import UIKit
 
 class MountainView: UIView {
-
+    
     var path: UIBezierPath!
     
+    var isProcedural: Bool
     var partOftTheDay: PartOfTheDay = .morning
     var colors: [String: CGColor] = ["": UIColor.white.cgColor]
     
     var elevation: CGFloat = 0
     
-//    var proceduralMountainPath: CAShapeLayer?
     var background = CAShapeLayer()
     var mountainA = CAShapeLayer()
     var mountainB = CAShapeLayer()
@@ -24,90 +24,55 @@ class MountainView: UIView {
     var mountainD = CAShapeLayer()
     
     
-    init(frame: CGRect, partOftTheDay: PartOfTheDay) {
+    init(frame: CGRect, partOftTheDay: PartOfTheDay, isProcedural: Bool = true) {
+        self.isProcedural = isProcedural
         self.partOftTheDay = partOftTheDay
         super.init(frame: frame)
         
-           self.backgroundColor = UIColor.clear
-//        self.backgroundColor = UIColor.darkGray
-//        update()
-        
-        
-//            setColors()
-//        background = createBackground()
-//        mountainA = createMountainA(procedural: true)
-//        mountainB = createMountainB(procedural: true)
-//        mountainC = createMountainC(procedural: true)
-//        mountainD = createMountainD(procedural: true)
-        update()
+        updateshapeLayers()
         
         self.layer.addSublayer(background)
         self.layer.addSublayer(mountainA)
         self.layer.addSublayer(mountainB)
         self.layer.addSublayer(mountainC)
         self.layer.addSublayer(mountainD)
-        
-        
-//        createCircle()
     }
     
-    func update(){
+    func updateshapeLayers(){
         
-//        setColors()
-//
-//        background.fillColor = colors["background"]
-//        mountainA.fillColor = colors["layerA"]
-//        mountainB.fillColor = colors["layerB"]
-//        mountainC.fillColor = colors["layerC"]
-//        mountainD.fillColor = colors["layerD"]
-//
-        
-        
-            setColors()
+        setColors()
         background.path = createBackground().path
-        mountainA.path = createMountainA(procedural: true).path
-        mountainB.path = createMountainB(procedural: true).path
-        mountainC.path = createMountainC(procedural: true).path
-        mountainD.path = createMountainD(procedural: true).path
+        mountainA.path = createMountainA().path
+        mountainB.path = createMountainB().path
+        mountainC.path = createMountainC().path
+        mountainD.path = createMountainD().path
         
         background.fillColor = colors["background"]
         mountainA.fillColor = colors["layerA"]
         mountainB.fillColor = colors["layerB"]
         mountainC.fillColor = colors["layerC"]
         mountainD.fillColor = colors["layerD"]
-//        createBackground()
-//        createMountainA(procedural: true)
-//        createMountainB(procedural: true)
-//        createMountainC(procedural: true)
-//        createMountainD(procedural: true)
         
         self.layer.display()
-
+        
     }
-    
-    override func draw(_ rect: CGRect) {
-//        createContainer()
-    }
-    
     
     //MARK: - CREATE Background
     private func createBackground() -> CAShapeLayer {
         // Initialize the path.
         path = UIBezierPath()
-     
+        
         // Specify the point that the path should start get drawn.
         
         
-        let startPoint = CGPoint(x: 0.0,
-                                 y: 0.0
-        )
+        let startPoint = CGPoint(x: 0.0, y: 0.0)
         
         path.move(to: startPoint)
         
         
         //Add the left line/side
         path.addLine(to: CGPoint(x: 0.0, y: self.frame.size.height))
-                
+        
         
         //Add the bottom line/side
         path.addLine(to: CGPoint(x: self.frame.size.width, y: self.frame.size.height))
@@ -119,7 +84,7 @@ class MountainView: UIView {
         
         // Back to beginning
         path.addLine(to: startPoint)
-                
+        
         
         // Close the path. This will create the last line automatically.
         path.close()
@@ -128,36 +93,10 @@ class MountainView: UIView {
         
         let background = CAShapeLayer()
         background.path = self.path.cgPath
-             
+        
         background.fillColor = colors["background"]
-         
+        
         return background
-         
-    }
-    
-    
-    
-    //MARK: - CREATE SUN/MOON
-    private func createCircle() {
-        self.path = UIBezierPath(ovalIn: CGRect(x: self.frame.size.width/2 - self.frame.size.height/2,
-                                                    y: elevation + 0.0,
-                                                    width: self.frame.size.height,
-                                                    height: self.frame.size.height))
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = self.path.cgPath
-     
-        self.layer.addSublayer(shapeLayer)
-        
-        shapeLayer.fillColor = colors["layerA"]
-         
-        self.layer.addSublayer(shapeLayer)
-    }
-    
-    
-    
-    //MARK: - CREATE CLOUDS
-    private func createClouds() {
         
     }
     
@@ -167,13 +106,12 @@ class MountainView: UIView {
     func proceduralMountainPath(maxHeight: CGFloat = 250.0, minHeight: CGFloat = 100.0) {
         // Reset the path.
         path = UIBezierPath()
-     
+        
         // Specify the point that the path should start get drawn.
         
         
         let startPoint = CGPoint(x: 0.0,
-                                 y: elevation + Double(Int.random(in: 10...30)) * 10.0
-        )
+                                 y: elevation + Double(Int.random(in: 10...30)) * 10.0)
         var nextPoint = startPoint
         
         
@@ -182,7 +120,7 @@ class MountainView: UIView {
         
         //Add the left line/side
         path.addLine(to: CGPoint(x: 0.0, y: elevation + self.frame.size.height))
-                
+        
         
         //Add the bottom line/side
         path.addLine(to: CGPoint(x: self.frame.size.width, y: elevation + self.frame.size.height))
@@ -192,7 +130,7 @@ class MountainView: UIView {
                                  y: elevation + CGFloat.random(in: minHeight...maxHeight))
         )
         
-
+        
         //Mountains
         nextPoint =  CGPoint(x: self.frame.size.width * CGFloat.random(in: 0.90...0.99),
                              y: elevation + maxHeight)
@@ -242,31 +180,24 @@ class MountainView: UIView {
         
         // Back to beginning
         path.addLine(to: startPoint)
-                
+        
         
         // Close the path. This will create the last line automatically.
         path.close()
-        
-//        proceduralMountainPath = CAShapeLayer()
-//        proceduralMountainPath!.path = self.path.cgPath
-//
-//        proceduralMountainPath!.fillColor = colors["layerA"]
-//
-//        self.layer.addSublayer(proceduralMountainPath!)
     }
     
-    private func createMountainA(procedural: Bool = false) -> CAShapeLayer {
-//        self.mountainA?.removeFromSuperlayer()
+    private func createMountainA() -> CAShapeLayer {
+        //        self.mountainA?.removeFromSuperlayer()
         
-        if procedural {
-        proceduralMountainPath()
+        if self.isProcedural {
+            proceduralMountainPath()
         } else {
             
             let frameHeight: CGFloat = self.frame.size.height
             let frameWidth: CGFloat = self.frame.size.width
             
             path = UIBezierPath()
-         
+            
             // Specify the point that the path should start get drawn.
             
             
@@ -281,17 +212,17 @@ class MountainView: UIView {
             
             //Add the left line/side
             path.addLine(to: CGPoint(x: 0.0, y: elevation + frameHeight))
-                    
+            
             
             //Add the bottom line/side
             path.addLine(to: CGPoint(x: self.frame.size.width, y: elevation + frameHeight))
             
             //Add the right line/side
-//            path.addLine(to: CGPoint(x: self.frame.size.width,
-//                                     y: elevation + frameHeight * 0.95)
-//            )
+            //            path.addLine(to: CGPoint(x: self.frame.size.width,
+            //                                     y: elevation + frameHeight * 0.95)
+            //            )
             
-
+            
             //Mountains
             
             nextPoint =  CGPoint(x: self.frame.size.width * CGFloat.random(in: 0.80...0.89),
@@ -337,7 +268,7 @@ class MountainView: UIView {
             
             // Back to beginning
             path.addLine(to: startPoint)
-                    
+            
             
             // Close the path. This will create the last line automatically.
             path.close()
@@ -345,14 +276,14 @@ class MountainView: UIView {
         
         let mountain = CAShapeLayer()
         mountain.path = self.path.cgPath
-             
+        
         mountain.fillColor = colors["layerA"]
-         
+        
         return mountain
     }
     
-    private func createMountainB(procedural: Bool = false) -> CAShapeLayer {
-        if procedural {
+    private func createMountainB() -> CAShapeLayer {
+        if self.isProcedural {
             proceduralMountainPath(maxHeight: 300, minHeight: 150.0)
             
         } else {
@@ -361,7 +292,7 @@ class MountainView: UIView {
             let frameWidth: CGFloat = self.frame.size.width
             
             path = UIBezierPath()
-         
+            
             // Specify the point that the path should start get drawn.
             
             
@@ -376,17 +307,17 @@ class MountainView: UIView {
             
             //Add the left line/side
             path.addLine(to: CGPoint(x: 0.0, y: elevation + frameHeight))
-                    
+            
             
             //Add the bottom line/side
             path.addLine(to: CGPoint(x: self.frame.size.width, y: elevation + frameHeight))
             
             //Add the right line/side
-//            path.addLine(to: CGPoint(x: self.frame.size.width,
-//                                     y: elevation + frameHeight * 0.95)
-//            )
+            //            path.addLine(to: CGPoint(x: self.frame.size.width,
+            //                                     y: elevation + frameHeight * 0.95)
+            //            )
             
-
+            
             //Mountains
             
             nextPoint =  CGPoint(x: self.frame.size.width * CGFloat.random(in: 0.80...89),
@@ -404,7 +335,6 @@ class MountainView: UIView {
             nextPoint =  CGPoint(x: self.frame.size.width * CGFloat.random(in: 0.60...0.69),
                                  y: elevation + frameHeight * 0.8)
             path.addLine(to: nextPoint)
-            
             
             
             
@@ -432,7 +362,7 @@ class MountainView: UIView {
             
             // Back to beginning
             path.addLine(to: startPoint)
-                    
+            
             
             // Close the path. This will create the last line automatically.
             path.close()
@@ -448,8 +378,8 @@ class MountainView: UIView {
         return mountain
     }
     
-    private func createMountainC(procedural: Bool = false) -> CAShapeLayer {
-        if procedural {
+    private func createMountainC() -> CAShapeLayer {
+        if self.isProcedural {
             proceduralMountainPath(maxHeight: 350, minHeight: 200)
             
         } else {
@@ -458,7 +388,7 @@ class MountainView: UIView {
             let frameWidth: CGFloat = self.frame.size.width
             
             path = UIBezierPath()
-         
+            
             // Specify the point that the path should start get drawn.
             
             
@@ -473,17 +403,17 @@ class MountainView: UIView {
             
             //Add the left line/side
             path.addLine(to: CGPoint(x: 0.0, y: elevation + frameHeight))
-                    
+            
             
             //Add the bottom line/side
             path.addLine(to: CGPoint(x: self.frame.size.width, y: elevation + frameHeight))
             
             //Add the right line/side
-//            path.addLine(to: CGPoint(x: self.frame.size.width,
-//                                     y: elevation + frameHeight * 0.95)
-//            )
+            //            path.addLine(to: CGPoint(x: self.frame.size.width,
+            //                                     y: elevation + frameHeight * 0.95)
+            //            )
             
-
+            
             //Mountains
             
             nextPoint =  CGPoint(x: self.frame.size.width * CGFloat.random(in: 0.80...89),
@@ -529,7 +459,7 @@ class MountainView: UIView {
             
             // Back to beginning
             path.addLine(to: startPoint)
-                    
+            
             
             // Close the path. This will create the last line automatically.
             path.close()
@@ -543,8 +473,8 @@ class MountainView: UIView {
         return mountain
     }
     
-    private func createMountainD(procedural: Bool = false) -> CAShapeLayer {
-        if procedural {
+    private func createMountainD() -> CAShapeLayer {
+        if self.isProcedural {
             proceduralMountainPath(maxHeight: 400, minHeight: 250)
         } else {
             let frameHeight: CGFloat = self.frame.size.height
@@ -644,9 +574,9 @@ class MountainView: UIView {
     func setColors() {
         
         self.colors = [
-            "background": UIColor(named: "bg_\(self.partOftTheDay.rawValue)")!.cgColor,
             "astro":  UIColor(named: "circle_\(self.partOftTheDay.rawValue)")!.cgColor,
             "clouds": UIColor(named: "clouds")!.cgColor,
+            "background": UIColor(named: "bg_\(self.partOftTheDay.rawValue)")!.cgColor,
             "layerA": UIColor(named: "mountain_A_\(self.partOftTheDay.rawValue)")!.cgColor,
             "layerB": UIColor(named: "mountain_B_\(self.partOftTheDay.rawValue)")!.cgColor,
             "layerC": UIColor(named: "mountain_C_\(self.partOftTheDay.rawValue)")!.cgColor,
@@ -655,18 +585,36 @@ class MountainView: UIView {
     }
     
     
-     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    
+    
+    
+    //MARK: - CREATE SUN/MOON
+    private func createCircle() {
+        self.path = UIBezierPath(ovalIn: CGRect(x: self.frame.size.width/2 - self.frame.size.height/2,
+                                                y: elevation + 0.0,
+                                                width: self.frame.size.height,
+                                                height: self.frame.size.height))
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = self.path.cgPath
+        
+        self.layer.addSublayer(shapeLayer)
+        
+        shapeLayer.fillColor = colors["layerA"]
+        
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    
+    //MARK: - CREATE CLOUDS
+    private func createClouds() {
+        
+    }
+    override func draw(_ rect: CGRect) {
+        //        createContainer()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
-
-
-
-///The parts of the Day based o the hour
-//enum PartOfTheDay: Int {
-//    case morning = 0
-//    case afternoon
-//    case evening
-//    case night
-//}
