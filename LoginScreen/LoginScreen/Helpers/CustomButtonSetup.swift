@@ -10,23 +10,26 @@ import UIKit
 class CustomButtonSetup: UIButton {
 
     var path: UIBezierPath!
-
-    override init(frame: CGRect) {
+    private var color: UIColor
+    
+    init(frame: CGRect, color: UIColor) {
+        self.color = color
         super.init(frame: frame)
 
        self.backgroundColor = UIColor.clear
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        backgroundColor = .clear
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+    
 
     override func draw(_ rect: CGRect) {
 
         createRectangle()
         backgroundColor = .clear
-        UIColor.brown.set()
+//        UIColor.brown.set()
+        self.color.set()
         path.fill()
 
     }

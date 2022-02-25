@@ -16,7 +16,7 @@ struct InputViewSetup {
     
     func configureUIView(with textField: UITextField) -> UIView {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         view.layer.borderWidth = 2
         view.layer.cornerRadius = 10
         view.addSubview(textField)
@@ -38,6 +38,7 @@ struct InputViewSetup {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.spellCheckingType = .no
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing;
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         return textField
     }

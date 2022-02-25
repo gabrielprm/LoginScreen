@@ -9,7 +9,16 @@ import UIKit
 
 class FormViewController: UIViewController, PropertyObserver {
     func updateTime(partOfTheDay: PartOfTheDay) {
-        print("Cheguei")
+        self.loginButton.removeFromSuperview()
+        
+        loginButton = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0), color: UIColor(named: "mountain_A_\(partOfTheDay.rawValue)")!)
+        loginButton.heightAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonHeight).isActive = true
+        loginButton.widthAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonWidth).isActive = true
+        loginButton.setTitle(Constants.Texts.loginButton, for: .normal)
+        loginButton.tintColor = .white
+        loginButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
+        
+        self.view.addSubview(loginButton)
     }
     
     //MARK: - Properties
@@ -67,7 +76,7 @@ class FormViewController: UIViewController, PropertyObserver {
     }()
     
     lazy var loginButton: UIButton = {
-        let button = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let button = CustomButtonSetup(frame: CGRect(x: 0, y: 0, width: 0, height: 0), color: UIColor(named: "mountain_A_3")!)
         button.heightAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonHeight).isActive = true
         button.widthAnchor.constraint(equalToConstant: Constants.Sizing.loginButtonWidth).isActive = true
         button.setTitle(Constants.Texts.loginButton, for: .normal)
