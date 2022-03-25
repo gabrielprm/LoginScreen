@@ -167,7 +167,7 @@ class MountainView: UIView {
         
         self.colors = [
             "astro":  UIColor(named: "circle_\(self.partOftTheDay.rawValue)")!.cgColor,
-            "clouds": UIColor(named: "clouds")!.cgColor,
+            "clouds": UIColor(named: "clouds_\(self.partOftTheDay.rawValue)")!.cgColor,
             "background": UIColor(named: "bg_\(self.partOftTheDay.rawValue)")!.cgColor,
             "layerA": UIColor(named: "mountain_A_\(self.partOftTheDay.rawValue)")!.cgColor,
             "layerB": UIColor(named: "mountain_B_\(self.partOftTheDay.rawValue)")!.cgColor,

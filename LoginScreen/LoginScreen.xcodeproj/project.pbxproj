@@ -86,13 +86,12 @@
 		893FC3C827C6A2E6004C6FED /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FBAD977E27C7F7F300BE988F /* ViewModel */,
+				894E369427C6C80400FA8446 /* Coordinator */,
 				EBB0339B27C6E455008A9258 /* Interfaces */,
+				894E367F27C6AE4C00FA8446 /* Screens */,
+				894E367E27C6AE4600FA8446 /* Model */,
 				894E368E27C6B61E00FA8446 /* Helpers */,
 				894E368C27C6AF3200FA8446 /* Core */,
-				894E367F27C6AE4C00FA8446 /* Screens */,
-				894E369427C6C80400FA8446 /* Coordinator */,
-				894E367E27C6AE4600FA8446 /* Model */,
 				894E368D27C6AF3C00FA8446 /* Resources */,
 				893FC3D727C6A2E7004C6FED /* Info.plist */,
 			);
@@ -110,6 +109,9 @@
 		894E367F27C6AE4C00FA8446 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				894E368027C6AE6600FA8446 /* LoginViewController.swift */,
+				894E368627C6AF0900FA8446 /* LoginViewModel.swift */,
+				FBAD977F27C7F82700BE988F /* WatchTimePublisher.swift */,
 				894E368327C6AEA800FA8446 /* Sign Up */,
 				894E368227C6AE9C00FA8446 /* Sign In */,
 			);
@@ -121,8 +123,6 @@
 			children = (
 				EBB0339627C6DF6C008A9258 /* Header */,
 				EBB0339527C6DF5A008A9258 /* Form */,
-				894E368027C6AE6600FA8446 /* LoginViewController.swift */,
-				894E368627C6AF0900FA8446 /* LoginViewModel.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -206,14 +206,6 @@
 				6F44581327C87BE80001D00A /* WatchTimeSubscriberProtocol.swift */,
 			);
 			path = Interfaces;
-			sourceTree = "<group>";
-		};
-		FBAD977E27C7F7F300BE988F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				FBAD977F27C7F82700BE988F /* WatchTimePublisher.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,11 +437,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZWZGGS7F2;
+				DEVELOPMENT_TEAM = K328B98U3F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoginScreen/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Login Screen";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,7 +455,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -472,11 +466,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZWZGGS7F2;
+				DEVELOPMENT_TEAM = K328B98U3F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoginScreen/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Login Screen";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -488,7 +484,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
